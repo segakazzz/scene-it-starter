@@ -14,12 +14,17 @@ body {
 	margin-top: 20px;
 }
 
-.movies-container h5{
-	display: flex;
-	justify-content: space-between;
-}
-
 .go-to-watchlist{
 	padding: auto;
 }
 
+.card-title{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0 10px 0;
+}
+
+.card-title h5{
+	margin: 0;
+	padding: 0;
+}
