@@ -5,7 +5,7 @@ console.assert(moviesMain, 'moviesMain is not found!')
 
 document.addEventListener('DOMContentLoaded', function(){
     moviesMain.innerHTML = renderMovies(movieData, false)
-
+    setGranim()
     moviesMain.addEventListener('click', function(event){
         event.preventDefault()
         if (event.target.tagName === 'BUTTON'){

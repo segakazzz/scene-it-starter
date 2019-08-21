@@ -8,6 +8,16 @@ body {
 	font-family: 'Abhaya Libre', serif;
 }
 
+#canvas-basic {
+    position: absolute;
+    display: block;
+	width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 .header h2 {
 	font-family: 'Satisfy', cursive;
 	color: #DC4247;
