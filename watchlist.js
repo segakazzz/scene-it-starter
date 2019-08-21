@@ -21,19 +21,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
 function removeFromWatchlist(imdbID){
     try {
-        let watchlistJSON = localStorage.getItem('watchlist')
-        let watchlist = JSON.parse(watchlistJSON)
-
-        if (watchlist === null){
-            watchlist = []
-        }
+        let watchlist = getWatchListFromLocalStorage()
         let index = watchlist.findIndex(function(element, index){            
             return element && element.imdbID == imdbID
         })
-
         watchlist.splice(index, 1)
-        watchlistJSON = JSON.stringify(watchlist)
-        localStorage.setItem('watchlist', watchlistJSON)
+        setWatchListToLocalStorage(watchlist)
         return true         
     } catch (error) {
         console.log(error)

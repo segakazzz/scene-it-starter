@@ -1,4 +1,6 @@
 let moviesMain = document.querySelector('#movies-main')
+let searchInput = document.querySelector('#search-form input')
+let searchButton = document.querySelector('#search-form button')
 
 document.getElementById('search-form').addEventListener('submit', function(e){
     e.preventDefault()
@@ -8,6 +10,8 @@ document.getElementById('search-form').addEventListener('submit', function(e){
     .then(function(response){
         let movieArray = (response.data.Response === "False") ? [] : response.data.Search
         moviesMain.innerHTML = renderMovies(movieArray, true)
+        setGranim()
+        checkAlreadyRegistered()
         moviesMain.addEventListener('click', function(event){
             event.preventDefault()
             if (event.target.tagName === 'BUTTON'){
@@ -24,23 +28,50 @@ document.getElementById('search-form').addEventListener('submit', function(e){
     })
 })
 
+document.addEventListener('DOMContentLoaded', function(){
+    setGranim()
+    searchButton.disabled = true
+})
+
+
+searchInput.addEventListener('keyup',function(e){
+    if(e.target.value.length < 3){
+        searchInput.classList.add('is-invalid')
+        searchInput.classList.remove('is-valid')
+        searchButton.disabled = true
+    } else {
+        searchInput.classList.remove('is-invalid')
+        searchInput.classList.add('is-valid')
+        searchButton.disabled = false
+    }
+})
+
 function saveToWatchlist(imdbID, movieArray){
     try {
         let movie = movieArray.find(function(currentMovie){
             return currentMovie.imdbID === imdbID
         })
-        let watchlistJSON = localStorage.getItem('watchlist')
-        let watchlist = JSON.parse(watchlistJSON)
-        if (watchlist === null){
-            watchlist = []
-        }
+        let watchlist = getWatchListFromLocalStorage()
         watchlist.push(movie)
-        watchlistJSON = JSON.stringify(watchlist)
-        localStorage.setItem('watchlist', watchlistJSON)
-        return true         
+        setWatchListToLocalStorage(watchlist)
+       return true         
     } catch (error) {
         console.log(error)
         return false
     }
 }
 
+function checkAlreadyRegistered(){
+    let watchlist = getWatchListFromLocalStorage()
+    let savedImdbIDArray = watchlist.map(function(element){
+      return element === null ? null : element.imdbID
+    })
+    let addButtons = document.querySelectorAll('.card-body button')
+    addButtons.forEach(function(btn){
+        const idArray = btn.getAttribute('id').split('-')
+        if (savedImdbIDArray.indexOf(idArray[idArray.length-1]) !== -1){
+            btn.disabled = true
+            btn.innerHTML = "Added Already!"
+        }
+    })
+}

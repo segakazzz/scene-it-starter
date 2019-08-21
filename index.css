@@ -12,6 +12,7 @@ body {
     position: absolute;
     display: block;
 	width: 100%;
+	height: 100%;
     top: 0;
     right: 0;
     bottom: 0;
@@ -28,7 +29,7 @@ body {
 }
 
 .results {
-	margin-top: 20px;
+	margin: 10px 0;
 	padding: 5px;
 }
 
@@ -58,7 +59,6 @@ body {
 	padding: 0;
 }
 
-
 .card-body{
 	padding: 8px;
 }
@@ -67,25 +67,4 @@ body {
 	height: 330px;
 	overflow: hidden;
 }
-
-/* Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-	.movie-poster{
-		height: 350px;
-	}
-} */
-
-/* Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) {
-	.movie-poster{
-		height: 330px;
-	}
-} */
-
-/* Large devices (desktops, 992px and up) */
-/* @media (min-width: 992px) {
-	.movie-poster{
-		height: 300px;
-	}
-} */
 

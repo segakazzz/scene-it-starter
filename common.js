@@ -36,10 +36,6 @@ function renderMovies(movieArray, hasAddButton) {
 }
 
 function setGranim() {
-  // console.dir(canvas)
-  // canvas.style.height = `"${height}px"`
-  // console.dir(canvas.style.height)
-
   const granimInstance = new Granim({
     element: "#canvas-basic",
     direction: "left-right",
@@ -52,18 +48,6 @@ function setGranim() {
           ["#e1eec3", "#f05053"]
         ]
       }
-    },
-    onStart: function() {
-      // const body = document.body
-      // const html = document.documentElement
-      // const height = Math.max( body.scrollHeight, body.offsetHeight,
-      //                     html.clientHeight, html.scrollHeight, html.offsetHeight )
-      // const canvas = document.querySelector('#canvas-basic')
-      // console.log('Granim: onStart');
-      // console.log(canvas.getAttribute('height'))
-      // console.log(height)
-      // canvas.setAttribute('height', height)
-      // console.log(canvas.getAttribute('height'))
     }
   });
   const body = document.body;
@@ -76,14 +60,19 @@ function setGranim() {
     html.offsetHeight
   );
   const canvas = document.querySelector("#canvas-basic");
-  console.log(window.parent.screen.height);
-  console.log(height)
-//   console.log(canvas.getAttribute("height"));
-//   console.log(height);
-//   canvas.setAttribute("height", height);
-//   console.log(canvas.getAttribute("height"));
-    console.log(`${Math.round(height / window.parent.screen.height * 100)}%`)
-    canvas.style.height = `${Math.round(height / window.parent.screen.height * 100)}%`
-    //canvas.style.height = "1000%"
-    console.log(canvas.style.height)
+  canvas.style.height = `${Math.round(height / window.innerHeight * 100)}%`
+}
+
+function getWatchListFromLocalStorage(){
+  let watchlistJSON = localStorage.getItem('watchlist')
+  let watchlist = JSON.parse(watchlistJSON)
+  if (watchlist === null){
+      watchlist = []
+  }
+  return watchlist
+}
+
+function setWatchListToLocalStorage(watchlist){
+  let watchlistJSON = JSON.stringify(watchlist)
+  localStorage.setItem('watchlist', watchlistJSON)
 }
