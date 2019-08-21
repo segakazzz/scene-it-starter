@@ -6,7 +6,7 @@ document.getElementById('search-form').addEventListener('submit', function(e){
     e.preventDefault()
     let searchString = document.querySelector('.search-bar').value
     let urlEncodedSearchString = encodeURIComponent(searchString)
-    axios.get('http://www.omdbapi.com/?apikey=3430a78&s=' + urlEncodedSearchString)
+    axios.get('https://www.omdbapi.com/?apikey=3430a78&s=' + urlEncodedSearchString)
     .then(function(response){
         let movieArray = (response.data.Response === "False") ? [] : response.data.Search
         moviesMain.innerHTML = renderMovies(movieArray, true)
