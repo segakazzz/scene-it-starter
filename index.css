@@ -1,8 +1,15 @@
+/* font-family: 'Satisfy', cursive;
+font-family: 'Kalam', cursive;
+font-family: 'Lacquer', sans-serif;
+font-family: 'Playfair Display SC', serif; */
+
 body {
 	background-color: #B2E9FD;
+	font-family: 'Abhaya Libre', serif;
 }
 
 .header h2 {
+	font-family: 'Satisfy', cursive;
 	color: #DC4247;
 }
 
@@ -12,19 +19,63 @@ body {
 
 .results {
 	margin-top: 20px;
+	padding: 5px;
 }
 
+.search{
+	padding: 10px 0;
+}
 .go-to-watchlist{
-	padding: auto;
+	padding: 10px;
 }
 
 .card-title{
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	margin: 0 0 10px 0;
+}
+
+.card-title h5.movie-title-year{
+	text-align: right;
+}
+
+.card-title h5.movie-title{
+	height: 80px;
 }
 
 .card-title h5{
 	margin: 0;
 	padding: 0;
 }
+
+
+.card-body{
+	padding: 8px;
+}
+
+.movie-poster{
+	height: 330px;
+	overflow: hidden;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) {
+	.movie-poster{
+		height: 350px;
+	}
+} */
+
+/* Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) {
+	.movie-poster{
+		height: 330px;
+	}
+} */
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) {
+	.movie-poster{
+		height: 300px;
+	}
+} */
+
