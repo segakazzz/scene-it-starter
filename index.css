@@ -72,3 +72,13 @@ body {
 	opacity: 0.8;
 }
 
+#notfound{
+	font-family: 'Satisfy', cursive;
+	color: #DC4247;
+	text-align: center;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
