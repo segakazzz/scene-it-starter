@@ -1,15 +1,15 @@
-### Summary
+# Summary
 Scene it provides movie search from [OMDb API](https://www.omdbapi.com). You can add/remove your favorite movies from/to your watchlist.
 
 * URL - https://segakazzz.github.io/scene-it-starter/
 
-### Technologies & External Libraries
+# Technologies & External Libraries
  * HTML/CSS
  * Javascript including Promise, Event Listner, Fetch etc. 
  * [Garnim](https://sarcadass.github.io/granim.js/) - Animated color gradients for background
  * [Bootstrap](https://getbootstrap.com/) - Layout & form components
 
-### Data structure from OMDb API
+# Data structure from OMDb API
 ~~~
 [
 	{
